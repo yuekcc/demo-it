@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo it</title>
+</head>
+
+<body>
+  <div class="top-bar">
+    <div>
+      Demo It
+    </div>
+    <div>
+      <button onclick="renderPage()">刷新</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="js">
+      <textarea role="js" class="editor" placeholder="javascript"></textarea>
+    </div>
+    <div class="html">
+      <textarea role="html" class="editor" placeholder="html"></textarea>
+    </div>
+    <div class="css">
+      <textarea role="style" class="editor" placeholder="css"></textarea>
+    </div>
+    <div class="result">
+
+      <iframe class="result-frame"></iframe>
+    </div>
+  </div>
+
+  <script type="module" src="src/index.js"></script>
+</body>
+
+</html>
