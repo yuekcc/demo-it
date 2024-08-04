@@ -17,26 +17,6 @@
     "singleQuote": true,
     "trailingComma": "all"
   },
-  "eslintConfig": {
-    "env": {
-      "es2022": true,
-      "commonjs": true,
-      "browser": true,
-      "node": true,
-      "worker": true,
-      "mocha": true
-    },
-    "parserOptions": {
-      "sourceType": "module"
-    },
-    "plugins": [
-      "prettier"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:prettier/recommended"
-    ]
-  },
   "devDependencies": {
     "@types/node": "^20.0.0",
     "eslint": "^8.53.0",

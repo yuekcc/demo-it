@@ -1,7 +1,9 @@
 import "./reset.css";
 import "./style.css";
+import "./button.css";
 
 const $ = document.querySelector.bind(document);
+const nextTick = (f = undefined) => Promise.resolve().then(() => f?.());
 
 function insertAtCursor(myField, myValue) {
 	if (myField.selectionStart === 0) {
@@ -30,6 +32,12 @@ function bindTabKeyForTextarea() {
 	});
 }
 
+function bindChangeEventForTextarea(onChange) {
+	document.querySelectorAll("textarea").forEach((el) => {
+		el.addEventListener("input", onChange);
+	});
+}
+
 function printCode(script, html, style, id) {
 	const result = `<!DOCTYPE html>
   <html lang="zh-Hans" id="${id}" data-time="${Date.now()}">
@@ -51,10 +59,13 @@ function printCode(script, html, style, id) {
 	return result;
 }
 
-function renderIframe(code) {
+async function renderIframe(code) {
+	const iframeEl = $(".result-frame");
+	$(".result-frame").src = null;
+	await nextTick();
+
 	const blob = new File([code], "index.html", { type: "text/html" });
 	const uri = URL.createObjectURL(blob);
-
 	$(".result-frame").src = uri;
 }
 
@@ -132,5 +143,6 @@ window.renderIframe = () => {
 };
 
 bindTabKeyForTextarea();
+bindChangeEventForTextarea(() => app.render());
 app.load();
 app.render();

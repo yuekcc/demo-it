@@ -1,7 +1,18 @@
+:root {
+  --black: white;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
+  background-color: var(--black);
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 .top-bar {
@@ -20,6 +31,8 @@ body {
     'js result'
     'html result'
     'css result';
+  grid-template-columns: minmax(0, 40%) 1fr;
+  grid-template-rows: minmax(0, auto) minmax(0, auto) minmax(0, auto);
 
   height: calc(100vh - 40px);
   width: 100%;
@@ -45,7 +58,8 @@ body {
     border: 1px solid #ccc;
 
     .result-frame {
-      height: calc(100% - 40px);
+      background-color: white;
+      height: 100%;
       width: 100%;
       border: 0;
     }
@@ -58,4 +72,12 @@ textarea.editor {
   padding: 10px;
   border: 0;
   appearance: unset;
+  resize: none;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
